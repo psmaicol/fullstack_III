@@ -1,4 +1,4 @@
-package com.shopsmart.pedidos.model;
+package com.shopsmart.shopsmart.model;
 import jakarta.persistence.*;
 
 @Entity

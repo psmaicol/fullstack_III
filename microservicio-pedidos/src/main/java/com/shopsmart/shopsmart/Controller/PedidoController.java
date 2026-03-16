@@ -1,10 +1,9 @@
-package com.shopsmart.pedidos.controller;
+package com.shopsmart.shopsmart.Controller; // Verifica que el paquete coincida con tu carpeta
 
-import com.shopsmart.pedidos.model.Pedido;
-import com.shopsmart.pedidos.repository.PedidoRepository;
+import com.shopsmart.shopsmart.model.Pedido;
+import com.shopsmart.shopsmart.Repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.;
-
+import org.springframework.web.bind.annotation.*; // Esta línea importa RestController, RequestMapping, etc.
 import java.util.List;
 
 @RestController
