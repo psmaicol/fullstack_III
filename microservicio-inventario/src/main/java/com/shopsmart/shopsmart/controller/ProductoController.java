@@ -1,7 +1,8 @@
-package com.shopsmart.shopsmart.controller;
+package com.shopsmart.shopsmart.Controller;
 
-import com.shopsmart.shopsmart.model.Producto;
-import com.shopsmart.shopsmart.repository.ProductoRepository;
+import com.shopsmart.shopsmart.Model.Producto;
+import com.shopsmart.shopsmart.Repository.ProductoRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

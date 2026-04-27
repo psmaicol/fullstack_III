@@ -1,14 +1,14 @@
-package com.shopsmart.shopsmart.Controller; // Verifica que el paquete coincida con tu carpeta
+package com.shopsmart.shopsmart.Controller; 
 
 import com.shopsmart.shopsmart.model.Pedido;
 import com.shopsmart.shopsmart.Repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*; // Esta línea importa RestController, RequestMapping, etc.
+import org.springframework.web.bind.annotation.*; 
 import java.util.List;
 
-@RestController
+@RestController 
 @RequestMapping("/pedidos")
-@CrossOrigin(origins = "")
+@CrossOrigin(origins = "*")
 public class PedidoController {
 
     @Autowired
