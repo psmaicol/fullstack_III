@@ -1,11 +1,9 @@
 package com.shopsmart.shopsmart.Controller;
 
 import com.shopsmart.shopsmart.Model.TransaccionPago;
-import com.shopsmart.shopsmart.Repository.TransaccionPagoRepository;
+import com.shopsmart.shopsmart.Service.TransaccionPagoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import java.util.Date;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/pagos")
@@ -13,14 +11,11 @@ import java.util.UUID;
 public class TransaccionPagoController {
 
     @Autowired
-    private TransaccionPagoRepository repository;
+    private TransaccionPagoService service; // Ahora llama al servicio
 
     @PostMapping("/procesar")
     public TransaccionPago procesarPago(@RequestBody TransaccionPago pago) {
-        // Simulamos la aprobación automática para el proyecto [cite: 200]
-        pago.setEstadoPago("Aprobado");
-        pago.setCodigoAutorizacion("AUTH-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase());
-        pago.setFechaPago(new Date());
-        return repository.save(pago);
+        // El controlador solo delega el trabajo al servicio
+        return service.procesarPago(pago);
     }
 }
