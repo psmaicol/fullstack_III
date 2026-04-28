@@ -1,6 +1,6 @@
 package com.shopsmart.shopsmart.Controller; 
 
-import com.shopsmart.shopsmart.model.Pedido;
+import com.shopsmart.shopsmart.Model.Pedido;
 import com.shopsmart.shopsmart.Repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*; 
