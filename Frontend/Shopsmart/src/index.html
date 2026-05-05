@@ -5,9 +5,29 @@
   <title>Shopsmart</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="/Frontend/Shopsmart/src/styles.css">
 </head>
 <body>
+  <!-- Nav Total-->
+ <nav class="navbar">
+  <div class="logo">PC Digital</div>
+  <input type="text" placeholder="Buscar productos..." />
+  <div class="actions">
+    <button>Iniciar sesion</button>
+    <button>Carrito (0)</button>
+  </div>
+</nav>
+<!--Se agregan producto-->
+<div class="product-card" *ngFor="let product of products">
+  <img [src]="product.image" />
+  <h3>{{ product.name }}</h3>
+  <p class="price">${{ product.price }}</p>
+  <button (click)="addToCart(product)">Agregar</button>
+</div>
   <app-root></app-root>
 </body>
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 PCDigital - Todos los derechos reservados</p>
+</footer>
 </html>
