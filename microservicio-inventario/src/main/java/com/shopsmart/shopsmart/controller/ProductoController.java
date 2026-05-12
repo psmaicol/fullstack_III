@@ -1,5 +1,4 @@
 package com.shopsmart.shopsmart.Controller;
-
 import com.shopsmart.shopsmart.Model.Producto;
 import com.shopsmart.shopsmart.Repository.ProductoRepository;
 
