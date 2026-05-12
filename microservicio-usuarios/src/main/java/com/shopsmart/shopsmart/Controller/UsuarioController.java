@@ -2,17 +2,17 @@ package com.shopsmart.shopsmart.Controller;
 
 import com.shopsmart.shopsmart.Model.Usuario;
 import com.shopsmart.shopsmart.Service.UsuarioService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/usuarios")
-@RequiredArgsConstructor
+@RequestMapping("/usuario")
 public class UsuarioController {
 
-    private final UsuarioService usuarioService;
+    @Autowired
+    private UsuarioService usuarioService;
 
     @PostMapping
     public Usuario crear(@RequestBody Usuario usuario) {
