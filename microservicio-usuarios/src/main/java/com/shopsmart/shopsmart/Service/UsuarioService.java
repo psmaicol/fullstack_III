@@ -2,16 +2,17 @@ package com.shopsmart.shopsmart.Service;
 
 import com.shopsmart.shopsmart.Model.Usuario;
 import com.shopsmart.shopsmart.Repository.UsuarioRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class UsuarioService {
 
-    private final UsuarioRepository usuarioRepository;
+    // Quitamos Lombok y usamos la inyección segura de Spring Boot
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     public Usuario crearUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
