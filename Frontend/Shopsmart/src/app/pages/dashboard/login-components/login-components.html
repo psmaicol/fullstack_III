@@ -1,0 +1,43 @@
+<!-- src/app/pages/login/login.component.html -->
+
+<div class="login-container">
+
+  <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-card">
+
+    <h2>Iniciar Sesión</h2>
+
+    <div class="form-group">
+      <label>Email</label>
+
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="correo@ejemplo.com"
+      >
+
+      <small *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+        Email inválido
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Contraseña</label>
+
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="******"
+      >
+
+      <small *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+        Mínimo 6 caracteres
+      </small>
+    </div>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Ingresando...' : 'Ingresar' }}
+    </button>
+
+  </form>
+
+</div>
