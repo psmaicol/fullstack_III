@@ -1,0 +1,78 @@
+.catalogo-container {
+  padding: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.subtitle {
+  color: #6c757d;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+.card {
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+  background-color: #f8f9fa;
+}
+.form-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1;
+  outline: none;
+}
+.form-group input:focus { border-color: #3498db; }
+
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 15px;
+}
+.product-card {
+  border: 1px solid #d2d6dc;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+.product-card:hover { transform: translateY(-3px); }
+.product-card h4 { margin-top: 0; color: #2c3e50; font-size: 20px; }
+.price { color: #27ae60; font-weight: bold; font-size: 18px; }
+
+/* Botones */
+button { padding: 10px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; border: none; }
+.btn-success { background: #28a745; color: white; }
+.btn-success:hover { background: #218838; }
+.btn-info { background: #3498db; color: white; width: 100%; margin-top: 15px; }
+.btn-info:hover { background: #2980b9; }
+.btn-secondary { background: #4a5568; color: white; }
+
+/* Reseñas */
+.reviews-section {
+  margin-top: 20px;
+  background: #f1f5f9;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+.review-item {
+  font-size: 14px;
+  margin: 10px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #cbd5e1;
+  color: #334155;
+}
+.add-review {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+.small-input { width: 70px; padding: 8px; border: 1px solid #ccc; border-radius: 6px; }
+.large-input { flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 6px; }
