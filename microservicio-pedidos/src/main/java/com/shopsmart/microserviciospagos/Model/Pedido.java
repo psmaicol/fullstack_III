@@ -1,4 +1,4 @@
-package com.shopsmart.shopsmart.Model;
+package com.shopsmart.microserviciospagos.Model;
 import jakarta.persistence.*;
 
 @Entity

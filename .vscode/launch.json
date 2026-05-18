@@ -90,6 +90,16 @@
             "projectName": "microservicio-pagos-microservicio-pagos",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ShopsmartApplication<shopsmart>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.shopsmart.microserviciospagos.ShopsmartApplication",
+            "projectName": "shopsmart",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
