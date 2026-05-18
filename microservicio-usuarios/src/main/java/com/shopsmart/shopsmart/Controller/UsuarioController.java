@@ -36,4 +36,15 @@ public class UsuarioController {
     public void eliminar(@PathVariable Long id) {
         usuarioService.eliminarUsuario(id);
     }
+    @PostMapping("/login")
+    public Usuario login(
+    @RequestBody Usuario usuario
+) {
+
+    return usuarioService.login(
+        usuario.getEmail(),
+        usuario.getPassword()
+    );
+
+}
 }
