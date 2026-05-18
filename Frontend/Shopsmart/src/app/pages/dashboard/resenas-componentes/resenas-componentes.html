@@ -1,0 +1,44 @@
+<div class="resena-container">
+  <div class="header-box">
+    <h2>⭐ Muro de Calificaciones y Reseñas</h2>
+    <button class="btn-back" (click)="volverAlInicio()">← Volver al Menú</button>
+  </div>
+  <p class="subtitle">Conectado al Microservicio de Reseñas (Puerto 8085)</p>
+
+  <div class="review-form-card">
+    <h3>Déjanos tu opinión</h3>
+    <div class="form-inputs">
+      <div class="field-item select-box">
+        <label>Calificación (1 al 5)</label>
+        <input [(ngModel)]="nuevaResena.calificacion" type="number" min="1" max="5" />
+      </div>
+      
+      <div class="field-item comment-box">
+        <label>Comentario o reseña</label>
+        <input [(ngModel)]="nuevaResena.comentario" placeholder="¿Qué te pareció el artículo? Cuéntanos..." />
+      </div>
+      
+      <button class="btn-send" (click)="publicarResena()" [disabled]="loading">
+        {{ loading ? 'Enviando...' : 'Enviar Reseña ✨' }}
+      </button>
+    </div>
+  </div>
+
+  <h3>Comentarios Recientes de Clientes</h3>
+  <div class="reviews-wrapper">
+    <div class="opinion-card" *ngFor="let r of listaResenas">
+      <div class="card-top">
+        <span class="product-tag">🛍️ Producto #{{ r.productoId }}</span>
+        <span class="stars-badge">⭐ {{ r.calificacion }} / 5</span>
+      </div>
+      <p class="comment-text">"{{ r.comentario }}"</p>
+      <div class="card-footer">
+        <small>Enviado por Cliente ID #{{ r.usuarioId }}</small>
+      </div>
+    </div>
+
+    <div *ngIf="listaResenas.length === 0" class="empty-message">
+      Aún no se han registrado opiniones en este entorno. ¡Sé el primero en dejar una!
+    </div>
+  </div>
+</div>

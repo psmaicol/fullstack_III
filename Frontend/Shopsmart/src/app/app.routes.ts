@@ -26,6 +26,8 @@ export const routes: Routes = [
     {
     path: 'catalogo',
     component: CatalogoComponentes
-  }
+  },
+  { path: 'resena', 
+    component: ResenaComponent }
 
 ];
