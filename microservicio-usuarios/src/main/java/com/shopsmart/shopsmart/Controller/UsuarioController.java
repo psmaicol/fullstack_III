@@ -2,11 +2,14 @@ package com.shopsmart.shopsmart.Controller;
 
 import com.shopsmart.shopsmart.Model.Usuario;
 import com.shopsmart.shopsmart.Service.UsuarioService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {

@@ -2,21 +2,23 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-  ReactiveFormsModule,
   FormBuilder,
   FormGroup,
-  Validators
+  Validators,
+  ReactiveFormsModule
 } from '@angular/forms';
+
+import { HttpClient } from '@angular/common/http';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-components',
   standalone: true,
-
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
-
   templateUrl: './login-components.html',
   styleUrls: ['./login-components.scss']
 })
@@ -25,31 +27,31 @@ export class LoginComponents {
   loginForm: FormGroup;
   loading = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {
 
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required]]
     });
+
+    
+  }
+
+   login() {
+
+    // tu login
 
   }
 
-  login() {
+  goToRegister() {
 
-    if (this.loginForm.invalid) {
-      this.loginForm.markAllAsTouched();
-      return;
-    }
-
-    this.loading = true;
-
-    console.log(this.loginForm.value);
-
-    setTimeout(() => {
-      this.loading = false;
-      alert('Login exitoso');
-    }, 1500);
+    this.router.navigate(['/register']);
 
   }
 
 }
+

@@ -1,0 +1,89 @@
+<div class="login-container">
+
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="register()"
+    class="login-card"
+  >
+
+    <h2>Crear Cuenta</h2>
+
+    <div class="form-group">
+
+      <label>Nombre</label>
+
+      <input
+        type="text"
+        formControlName="nombre"
+        placeholder="Ingresa tu nombre"
+      >
+
+      <small *ngIf="registerForm.get('nombre')?.touched &&
+                     registerForm.get('nombre')?.invalid">
+
+        Nombre requerido
+
+      </small>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Email</label>
+
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="correo@gmail.com"
+      >
+
+      <small *ngIf="registerForm.get('email')?.touched &&
+                     registerForm.get('email')?.invalid">
+
+        Email inválido
+
+      </small>
+
+    </div>
+
+    <div class="form-group">
+
+      <label>Contraseña</label>
+
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="******"
+      >
+
+      <small *ngIf="registerForm.get('password')?.touched &&
+                     registerForm.get('password')?.invalid">
+
+        Mínimo 6 caracteres
+
+      </small>
+
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="loading"
+    >
+
+      {{ loading ? 'Creando...' : 'Registrarse' }}
+
+    </button>
+
+    <p class="register-text">
+
+      ¿Ya tienes cuenta?
+
+      <a routerLink="/">
+        Iniciar sesión
+      </a>
+
+    </p>
+
+  </form>
+
+</div>

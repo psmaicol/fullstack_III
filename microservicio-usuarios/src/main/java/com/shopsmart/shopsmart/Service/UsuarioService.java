@@ -10,7 +10,6 @@ import java.util.List;
 @Service
 public class UsuarioService {
 
-    // Quitamos Lombok y usamos la inyección segura de Spring Boot
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -29,5 +28,9 @@ public class UsuarioService {
 
     public void eliminarUsuario(Long id) {
         usuarioRepository.deleteById(id);
+    }
+       // LOGIN
+    public Usuario buscarPorEmail(String email) {
+        return usuarioRepository.findByEmail(email).orElse(null);
     }
 }
