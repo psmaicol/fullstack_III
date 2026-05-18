@@ -40,18 +40,61 @@ export class LoginComponents {
 
     
   }
+  
+login() {
 
-   login() {
+  console.log('FUNCIONA');
+  if (this.loginForm.invalid) {
 
-    // tu login
+    this.loginForm.markAllAsTouched();
+
+    return;
 
   }
+
+  this.loading = true;
+
+  this.http.post(
+    'http://localhost:8084/usuario/login',
+    this.loginForm.value
+  ).subscribe({
+
+    next: (resp: any) => {
+
+      this.loading = false;
+
+      localStorage.setItem(
+        'usuario',
+        JSON.stringify(resp)
+      );
+
+      alert('Login correcto');
+
+      this.router.navigate(['/inicio']);
+
+    },
+
+    error: (err) => {
+
+      console.log(err);
+
+      this.loading = false;
+
+      alert('Correo o contraseña incorrectos');
+
+    }
+
+  });
+
+}
 
   goToRegister() {
 
     this.router.navigate(['/register']);
 
   }
+  
+  
 
 }
 

@@ -29,7 +29,8 @@
             "mainClass": "com.shopsmart.shopsmart.MicroservicioPagosApplication",
             "projectName": "microservicio-pagos",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote"
         },
         {
             "type": "java",
@@ -38,6 +39,16 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.shopsmart.shopsmart.Application",
             "projectName": "microservicio.usuarios",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroservicioResenasApplication<microservicio-resenas>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.shopsmart.shopsmart.MicroservicioResenasApplication",
+            "projectName": "microservicio-resenas",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

@@ -1,4 +1,7 @@
 <div class="login-container">
+  <h1 style="color:white;">
+  LOGIN FUNCIONANDO
+</h1>
 
   <div class="login-card">
 
@@ -44,17 +47,13 @@
         >
 
       </div>
-
-      <button
-        type="submit"
-        class="login-btn"
-        [disabled]="loading"
-      >
-
-        {{ loading ? 'Ingresando...' : 'Ingresar' }}
-
-      </button>
-
+<button
+  type="button"
+  (click)="login()"
+  class="login-btn"
+>
+  TEST LOGIN
+</button>
       <div class="register-section">
 
         <span>

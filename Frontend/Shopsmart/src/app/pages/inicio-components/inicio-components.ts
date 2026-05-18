@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-inicio-components',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './inicio-components.html',
-  styleUrls: ['./inicio-components.scss']
+styleUrls: ['./inicio-components.scss']
 })
 export class InicioComponents implements OnInit {
 
@@ -23,6 +23,7 @@ export class InicioComponents implements OnInit {
 
       this.usuario = JSON.parse(data);
 
+
     }
 
   }
@@ -34,5 +35,6 @@ export class InicioComponents implements OnInit {
     this.router.navigate(['/']);
 
   }
+  
 
 }
