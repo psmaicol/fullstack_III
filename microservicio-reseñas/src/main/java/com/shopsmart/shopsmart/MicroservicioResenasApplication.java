@@ -1,4 +1,4 @@
-package com.shopsmart.microservicio_resenas;
+package com.shopsmart.shopsmart;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
