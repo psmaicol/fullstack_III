@@ -1,1 +1,43 @@
-<p>catalogo-componentes works!</p>
+<div class="catalogo-container">
+  <h2>📦 Catálogo de Productos (Inventario y Reseñas)</h2>
+  <p class="subtitle">Conectado a los puertos 8080 y 8085 de Spring Boot</p>
+
+  <div class="card add-card">
+    <h3>Añadir Nuevo Producto al Inventario</h3>
+    <div class="form-group">
+      <input [(ngModel)]="nuevoProd.nombre" placeholder="Nombre del Producto" />
+      <input [(ngModel)]="nuevoProd.precio" type="number" placeholder="Precio ($)" />
+      <input [(ngModel)]="nuevoProd.stock" type="number" placeholder="Stock Inicial" />
+      <button class="btn-success" (click)="crearProducto()">Guardar Producto</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3>Productos en Tienda</h3>
+  <div class="grid-productos">
+    <div class="product-card" *ngFor="let p of productos">
+      <h4>{{ p.nombre }}</h4>
+      <p>Precio: <span class="price">${{ p.precio }}</span></p>
+      <p>Stock disponible: <strong>{{ p.stock }}</strong> unidades</p>
+      
+      <button class="btn-info" (click)="verResenas(p.id)">💬 Ver / Añadir Reseñas</button>
+
+      <div class="reviews-section" *ngIf="productoSeleccionadoId === p.id">
+        <h5>Comentarios de la Comunidad:</h5>
+        <p *ngIf="resenas.length === 0" style="color: gray; font-style: italic; font-size: 13px;">Nadie ha comentado aún. ¡Sé el primero!</p>
+        
+        <div class="review-item" *ngFor="let r of resenas">
+          <span>⭐ {{ r.calificacion }}/5</span> - "{{ r.comentario }}"
+        </div>
+
+        <div class="add-review">
+          <input [(ngModel)]="nuevaResena.calificacion" type="number" max="5" min="1" placeholder="Nota 1-5" class="small-input" />
+          <input [(ngModel)]="nuevaResena.comentario" placeholder="Escribe tu opinión..." class="large-input" />
+          <button class="btn-secondary" (click)="addResena(p.id)">Publicar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
