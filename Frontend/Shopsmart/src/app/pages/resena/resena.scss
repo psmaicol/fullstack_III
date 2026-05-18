@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.resenas-container {
+  min-height: 100vh;
+  background: #0f172a;
+  padding: 40px;
+}
+
+.resenas-container h1 {
+  color: white;
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+
+.resena-card {
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.resena-card h2 {
+  color: #22c55e;
+  margin-bottom: 15px;
+}
+
+.resena-card p {
+  color: white;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.resena-card span {
+  color: #94a3b8;
+}

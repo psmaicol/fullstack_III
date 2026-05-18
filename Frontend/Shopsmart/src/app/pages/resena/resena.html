@@ -1,0 +1,33 @@
+<div class="resenas-container">
+
+  <h1>
+    Reseñas de Productos
+  </h1>
+
+  <div
+    class="resena-card"
+    *ngFor="let resena of resenas"
+  >
+
+    <h2>
+
+      ⭐ {{ resena.calificacion }}/5
+
+    </h2>
+
+    <p>
+
+      {{ resena.comentario }}
+
+    </p>
+
+    <span>
+
+      Usuario:
+      {{ resena.usuarioId }}
+
+    </span>
+
+  </div>
+
+</div>
