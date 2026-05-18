@@ -1,149 +1,66 @@
 <div class="home-container">
 
-  <!-- SIDEBAR -->
-
   <aside class="sidebar">
-
     <div>
-
       <div class="logo">
-
         <div class="logo-circle">
           S
         </div>
-
         <h2>ShopSmart</h2>
-
       </div>
-
     </div>
 
     <button (click)="logout()">
       Cerrar Sesión
     </button>
-
   </aside>
 
-  <!-- CONTENT -->
-
   <main class="content">
-
     <header class="topbar">
-
       <div>
-
         <h1>
           Bienvenido 👋
         </h1>
-
         <p>
           Selecciona una sección del sistema
         </p>
-
       </div>
 
       <div class="user-box">
-
-        {{ usuario?.nombre }}
-
+        {{ usuario?.nombre || 'Usuario' }}
       </div>
-
     </header>
-
-    <!-- CATALOGO -->
 
     <section class="catalog-grid">
 
-      <!-- PRODUCTOS -->
-
       <div class="catalog-card">
-
-        <div class="icon">
-          🛍️
-        </div>
-
-        <h2>
-          Productos
-        </h2>
-
-        <p>
-          Explora el catálogo completo de productos.
-        </p>
-
-        <button>
-          Entrar
-        </button>
-
+        <div class="icon">🛍️</div>
+        <h2>Productos</h2>
+        <p>Explora el catálogo completo de productos.</p>
+        <button (click)="navegarA('/catalogo')">Entrar</button>
       </div>
 
-      <!-- RESEÑAS -->
-
       <div class="catalog-card">
-
-        <div class="icon">
-          ⭐
-        </div>
-
-        <h2>
-          Reseñas
-        </h2>
-
-        <p>
-          Revisa opiniones y calificaciones.
-        </p>
-
-        <button>
-          Entrar
-        </button>
-
+        <div class="icon">⭐</div>
+        <h2>Reseñas</h2>
+        <p>Revisa opiniones y calificaciones.</p>
+        <button (click)="navegarA('/resenas')">Entrar</button>
       </div>
 
-      <!-- PEDIDOS -->
-
       <div class="catalog-card">
-
-        <div class="icon">
-          📦
-        </div>
-
-        <h2>
-          Pedidos
-        </h2>
-
-        <p>
-          Gestiona pedidos y estados de compra.
-        </p>
-
-        <button>
-          Entrar
-        </button>
-
+        <div class="icon">📦</div>
+        <h2>Pedidos</h2>
+        <p>Gestiona pedidos y estados de compra.</p>
+        <button (click)="navegarA('/checkout')">Entrar</button>
       </div>
 
-      <!-- INVENTARIO -->
-
       <div class="catalog-card">
-
-        <div class="icon">
-          📊
-        </div>
-
-        <h2>
-          Inventario
-        </h2>
-
-        <p>
-          Controla stock y disponibilidad.
-        </p>
-
-        <button>
-          Entrar
-        </button>
-
+        <div class="icon">📊</div>
+        <h2>Inventario</h2>
+        <p>Controla stock y disponibilidad.</p>
+        <button (click)="navegarA('/usuarios')">Entrar</button>
       </div>
 
     </section>
-
   </main>
-
 </div>

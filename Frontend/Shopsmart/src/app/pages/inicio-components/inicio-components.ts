@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './inicio-components.html',
-styleUrls: ['./inicio-components.scss']
+  styleUrls: ['./inicio-components.scss']
 })
 export class InicioComponents implements OnInit {
 
@@ -16,25 +16,18 @@ export class InicioComponents implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-
     const data = localStorage.getItem('usuario');
-
     if (data) {
-
       this.usuario = JSON.parse(data);
-
-
     }
+  }
 
+  navegarA(ruta: string): void {
+    this.router.navigate([ruta]);
   }
 
   logout() {
-
     localStorage.removeItem('usuario');
-
     this.router.navigate(['/']);
-
   }
-  
-
 }
