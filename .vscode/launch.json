@@ -40,6 +40,56 @@
             "projectName": "microservicio.usuarios",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<microservicio-usarios-microservicio.usuarios>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.shopsmart.shopsmart.Application",
+            "projectName": "microservicio-usarios-microservicio.usuarios",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ShopsmartApplication<com.shopsmart-microservicio-inventario>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.shopsmart.shopsmart.ShopsmartApplication",
+            "projectName": "com.shopsmart-microservicio-inventario",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroservicioResenasApplication<com.shopsmart-microservicio-resenas>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.shopsmart.shopsmart.MicroservicioResenasApplication",
+            "projectName": "com.shopsmart-microservicio-resenas",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ShopsmartApplication<com.shopsmart-shopsmart>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.shopsmart.shopsmart.ShopsmartApplication",
+            "projectName": "com.shopsmart-shopsmart",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroservicioPagosApplication<microservicio-pagos-microservicio-pagos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.shopsmart.shopsmart.MicroservicioPagosApplication",
+            "projectName": "microservicio-pagos-microservicio-pagos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
