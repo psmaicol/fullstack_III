@@ -1,4 +1,4 @@
-package com.shopsmart.shopsmart.Controller; 
+package com.shopsmart.shopsmart.Controller;
 
 import com.shopsmart.shopsmart.Model.Pedido;
 import com.shopsmart.shopsmart.Repository.PedidoRepository;
