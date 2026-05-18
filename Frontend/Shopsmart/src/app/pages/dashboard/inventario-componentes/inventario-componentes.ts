@@ -24,7 +24,7 @@ export class InventarioComponentesComponent implements OnInit {
 
   // GET: Obtener todos los productos del puerto 8080
   cargarProductos() {
-    this.http.get<any[]>('http://localhost:8080/api/productos').subscribe({
+    this.http.get<any[]>('http://localhost:8082/api/productos').subscribe({
       next: (res) => this.productos = res,
       error: (err) => console.error('Error al conectar con el inventario 8080', err)
     });
@@ -39,16 +39,26 @@ export class InventarioComponentesComponent implements OnInit {
 
     this.loading = true;
 
-    this.http.post('http://localhost:8080/api/productos', this.nuevoProd).subscribe({
+    // Convertimos explícitamente a números puros para evitar incompatibilidades con Java
+    const payload = {
+      nombre: this.nuevoProd.nombre,
+      precio: Number(this.nuevoProd.precio),
+      stock: Number(this.nuevoProd.stock)
+    };
+
+    const headers = { 'Content-Type': 'application/json' };
+
+    this.http.post('http://localhost:8082/api/productos', payload, { headers }).subscribe({
       next: () => {
         this.loading = false;
         alert('✅ ¡Producto añadido al inventario exitosamente!');
         this.nuevoProd = { nombre: '', precio: 0, stock: 0 }; // Limpiar formulario
         this.cargarProductos(); // Recargar la tabla automáticamente
       },
-      error: () => {
+      error: (err) => {
         this.loading = false;
-        alert('❌ Error al guardar el producto.');
+        console.error('Error en POST:', err);
+        alert('❌ Error al guardar el producto. Verifica que el puerto 8082 esté encendido.');
       }
     });
   }
@@ -56,12 +66,15 @@ export class InventarioComponentesComponent implements OnInit {
   // DELETE: Quitar un producto del sistema
   eliminarProducto(id: number) {
     if (confirm('¿Estás seguro de que deseas quitar este producto del inventario?')) {
-      this.http.delete(`http://localhost:8080/api/productos/${id}`).subscribe({
+      this.http.delete(`http://localhost:8082/api/productos/${id}`).subscribe({
         next: () => {
           alert('🗑️ Producto eliminado del sistema.');
           this.cargarProductos(); // Recargar la tabla automáticamente
         },
-        error: () => alert('❌ Error al intentar eliminar. Asegúrate de que el backend soporte la petición DELETE.')
+        error: (err) => {
+          console.error('Error en DELETE:', err);
+          alert('❌ Error al intentar eliminar. Asegúrate de tener implementado el método DeleteMapping.');
+        }
       });
     }
   }

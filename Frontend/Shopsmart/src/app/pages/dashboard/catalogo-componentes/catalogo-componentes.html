@@ -1,13 +1,34 @@
 <div class="catalogo-container">
-  <h2>📦 Catálogo de Productos</h2>
-  <p>Explora nuestra selección de productos disponibles en tienda.</p>
+  <div class="header-box">
+    <h2>🛍️ Catálogo de Productos Disponibles</h2>
+    <button class="btn-back" (click)="volverAlInicio()">← Volver al Menú</button>
+  </div>
+  
+  <p class="subtitle">Lista sincronizada en tiempo real con las existencias en almacén (Puerto 8080)</p>
 
-  <h3>Productos en Tienda</h3>
-  <div class="grid-productos">
-    <div class="product-card" *ngFor="let p of productos">
-      <h4>{{ p.nombre }}</h4>
-      <p>Precio: <span class="price">${{ p.precio }}</span></p>
-      <p>Stock disponible: <strong>{{ p.stock }}</strong> unidades</p>   
+  <div *ngIf="loading" class="loading-state">
+    <p>Consultando existencias de productos...</p>
+  </div>
+
+  <div class="grid-productos" *ngIf="!loading">
+    <div class="product-card" *ngFor="let prod of productos">
+      <div class="card-icon">📦</div>
+      <h3>{{ prod.nombre }}</h3>
+      <div class="card-info">
+        <p class="price">Precio: <span>${{ prod.precio }}</span></p>
+        <p class="stock">Disponibles: 
+<strong [ngClass]="prod.stock === 0 ? 'out-of-stock' : 'in-stock'">
+  {{ prod.stock > 0 ? prod.stock + ' unidades' : 'Agotado' }}
+</strong>
+        </p>
       </div>
+      <button class="btn-buy" [disabled]="prod.stock === 0">
+        {{ prod.stock > 0 ? 'Añadir al Carrito' : 'No disponible' }}
+      </button>
     </div>
   </div>
+
+  <div *ngIf="productos.length === 0 && !loading" class="empty-state">
+    <p>No hay artículos registrados actualmente en el inventario de Supabase.</p>
+  </div>
+</div>
