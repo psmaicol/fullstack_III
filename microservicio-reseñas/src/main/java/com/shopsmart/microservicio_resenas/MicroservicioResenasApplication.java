@@ -1,0 +1,13 @@
+package com.shopsmart.microservicio_resenas;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MicroservicioResenasApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MicroservicioResenasApplication.class, args);
+	}
+
+}
