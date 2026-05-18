@@ -1,19 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { InventarioComponentesComponent } from './inventario-componentes';
 
-import { InventarioComponentes } from './inventario-componentes';
-
-describe('InventarioComponentes', () => {
-  let component: InventarioComponentes;
-  let fixture: ComponentFixture<InventarioComponentes>;
+describe('InventarioComponentesComponent', () => {
+  let component: InventarioComponentesComponent;
+  let fixture: ComponentFixture<InventarioComponentesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InventarioComponentes],
+      imports: [InventarioComponentesComponent],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting()
+      ]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(InventarioComponentes);
+    fixture = TestBed.createComponent(InventarioComponentesComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

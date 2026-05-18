@@ -1,1 +1,65 @@
-<p>cupones works!</p>
+<div class="cupon-container">
+
+  <div class="cupon-card">
+
+    <h1>
+      Validar Cupón
+    </h1>
+
+    <p>
+      Ingresa un código promocional
+    </p>
+
+    <input
+      type="text"
+      [(ngModel)]="codigo"
+      placeholder="Ej: NAVIDAD20"
+    >
+
+    <button (click)="validarCupon()">
+
+      Validar
+
+    </button>
+
+    <!-- CUPON OK -->
+
+    <div
+      class="success"
+      *ngIf="cupon"
+    >
+
+      <h2>
+        🎉 Cupón válido
+      </h2>
+
+      <p>
+
+        Código:
+        {{ cupon.codigo }}
+
+      </p>
+
+      <p>
+
+        Descuento:
+        {{ cupon.porcentajeDescuento }}%
+
+      </p>
+
+    </div>
+
+    <!-- ERROR -->
+
+    <div
+      class="error"
+      *ngIf="error"
+    >
+
+      {{ error }}
+
+    </div>
+
+  </div>
+
+</div>

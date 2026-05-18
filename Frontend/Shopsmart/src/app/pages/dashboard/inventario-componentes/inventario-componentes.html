@@ -1,1 +1,62 @@
-<p>inventario-componentes works!</p>
+<div class="inventario-container">
+  <div class="header-box">
+    <h2>📊 Panel de Control de Inventario</h2>
+    <button class="btn-back" (click)="volverAlInicio()">← Volver al Menú</button>
+  </div>
+  
+  <p class="subtitle">Área operativa exclusiva: Añadir y remover existencias en Supabase (Puerto 8080)</p>
+
+  <div class="admin-card">
+    <h3>Añadir Nuevo Artículo</h3>
+    <div class="form-grid">
+      <div class="input-field">
+        <label>Nombre del Producto</label>
+        <input [(ngModel)]="nuevoProd.nombre" placeholder="Ej. Monitor Gamer 24'" />
+      </div>
+      <div class="input-field">
+        <label>Precio Unitario ($)</label>
+        <input [(ngModel)]="nuevoProd.precio" type="number" placeholder="0" />
+      </div>
+      <div class="input-field">
+        <label>Stock Inicial</label>
+        <input [(ngModel)]="nuevoProd.stock" type="number" placeholder="0" />
+      </div>
+    </div>
+    <button class="btn-add" (click)="agregarProducto()" [disabled]="loading">
+      {{ loading ? 'Registrando...' : '✨ Registrar en Sistema' }}
+    </button>
+  </div>
+
+  <h3>Existencias en Bodega</h3>
+  <div class="table-wrapper">
+    <table class="inventario-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre del Artículo</th>
+          <th>Precio</th>
+          <th>Stock Actual</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prod of productos">
+          <td>#{{ prod.id }}</td>
+          <td><strong>{{ prod.nombre }}</strong></td>
+          <td class="price-cell">${{ prod.precio }}</td>
+          <td>
+            <span [class.badge-danger]="prod.stock === 0" [class.badge-success]="prod.stock > 0">
+              {{ prod.stock }} unidades
+            </span>
+          </td>
+          <td>
+            <button class="btn-delete" (click)="eliminarProducto(prod.id)">🗑️ Quitar</button>
+          </td>
+        </tr>
+        <tr *ngIf="productos.length === 0">
+          <td colspan="5" class="empty-state">No hay productos registrados en la base de datos.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

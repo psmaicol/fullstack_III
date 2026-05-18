@@ -1,0 +1,106 @@
+.inventario-container {
+  padding: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.subtitle {
+  color: #7f8c8d;
+  margin-top: -5px;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+.btn-back {
+  background-color: #7f8c8d;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.admin-card {
+  background: #f8f9fa;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+.form-grid {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+.input-field {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.input-field label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+.input-field input {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+}
+.btn-add {
+  background-color: #2ecc71;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-add:disabled {
+  background-color: #95a5a6;
+}
+.table-wrapper {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.inventario-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.inventario-table th, .inventario-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.inventario-table th {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+.price-cell {
+  color: #27ae60;
+  font-weight: bold;
+}
+.btn-delete {
+  background-color: #e74c3c;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+}
+.btn-delete:hover { background-color: #c0392b; }
+.badge-success { background: #d4edda; color: #155724; padding: 3px 8px; border-radius: 12px; font-size: 12px; }
+.badge-danger { background: #f8d7da; color: #721c24; padding: 3px 8px; border-radius: 12px; font-size: 12px; }
+.empty-state { text-align: center; color: #94a3b8; padding: 20px; }
