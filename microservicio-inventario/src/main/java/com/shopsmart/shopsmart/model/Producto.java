@@ -1,4 +1,4 @@
-package com.shopsmart.shopsmart.model;
+package com.shopsmart.shopsmart.Model;
 
 import jakarta.persistence.*;
 

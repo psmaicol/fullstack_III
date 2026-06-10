@@ -1,6 +1,6 @@
 package com.shopsmart.shopsmart.Controller;
+import com.shopsmart.shopsmart.Model.Producto;
 import com.shopsmart.shopsmart.Repository.ProductoRepository;
-import com.shopsmart.shopsmart.model.Producto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
