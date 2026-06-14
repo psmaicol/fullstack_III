@@ -8,8 +8,8 @@ import java.util.List;
 
 @RestController 
 @RequestMapping("/pedidos")
-@CrossOrigin(origins = "*")
-public class PedidoController {
+@CrossOrigin(origins = "http://localhost:4200")
+public class PedidoController extends BaseController {
 
     @Autowired
     private PedidoRepository pedidoRepository;

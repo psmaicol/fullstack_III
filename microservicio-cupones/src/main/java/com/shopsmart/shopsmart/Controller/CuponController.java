@@ -7,18 +7,16 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cupones")
-public class CuponController {
+public class CuponController extends BaseController {
 
     @Autowired
     private CuponService service;
 
-    // Para que tú puedas crear cupones nuevos desde Postman/Angular
     @PostMapping
     public Cupon crear(@RequestBody Cupon cupon) {
         return service.crearCupon(cupon);
     }
 
-    // Para que Angular valide el código que escribe el cliente en el carrito
     @GetMapping("/validar/{codigo}")
     public Cupon validar(@PathVariable String codigo) {
         return service.validarCupon(codigo);

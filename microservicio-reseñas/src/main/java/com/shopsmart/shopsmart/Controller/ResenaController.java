@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/resenas")
+@RequestMapping("/resenas")
 @CrossOrigin(origins = "http://localhost:4200")
-public class ResenaController {
+public class ResenaController extends BaseController {
 
     @Autowired
     private ResenaService service;

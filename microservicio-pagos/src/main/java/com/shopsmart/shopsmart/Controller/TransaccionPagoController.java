@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/pagos")
-public class TransaccionPagoController {
+public class TransaccionPagoController extends BaseController {
 
     @Autowired
     private TransaccionPagoRepository repository;
