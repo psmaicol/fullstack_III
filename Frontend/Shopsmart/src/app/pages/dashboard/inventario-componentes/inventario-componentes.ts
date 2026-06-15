@@ -24,7 +24,7 @@ export class InventarioComponentesComponent implements OnInit {
 
   // GET: Obtener todos los productos del puerto 8080
   cargarProductos() {
-    this.http.get<any[]>('http://localhost:8082/api/productos').subscribe({
+    this.http.get<any[]>('http://localhost:8082/productos').subscribe({
       next: (res) => this.productos = res,
       error: (err) => console.error('Error al conectar con el inventario 8080', err)
     });

@@ -57,8 +57,8 @@ export class Register {
       rol: 'CLIENTE'
     };
 
-    // 💡 CORRECCIÓN DE PUERTO: Apuntamos al Microservicio de Usuarios (8082)
-    this.http.post('http://localhost:8082/api/usuarios', usuario).subscribe({
+    // 💡 CORRECCIÓN DE PUERTO: Apuntamos al Microservicio de Usuarios (8084)
+    this.http.post('http://localhost:8084/usuario', usuario).subscribe({
       next: () => {
         this.loading = false;
         alert('🎉 ¡Cuenta creada correctamente! Bienvenido a ShopSmart.');
@@ -69,7 +69,7 @@ export class Register {
       error: (err) => {
         console.error('Error al registrar:', err);
         this.loading = false;
-        alert('❌ Error al registrar el usuario. Asegúrate de que el puerto 8082 esté encendido.');
+        alert('❌ Error al registrar el usuario. Asegúrate de que el puerto 8084 esté encendido.');
       }
     });
   }

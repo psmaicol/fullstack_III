@@ -29,7 +29,7 @@ export class ResenaComponent implements OnInit {
 
   // GET: Leer comentarios guardados en Supabase (Puerto 8085)
   cargarResenas() {
-    this.http.get<any[]>('http://localhost:8085/api/resenas').subscribe({
+    this.http.get<any[]>('http://localhost:8085/resenas').subscribe({
       next: (res) => {
         this.listaResenas = res;
       },

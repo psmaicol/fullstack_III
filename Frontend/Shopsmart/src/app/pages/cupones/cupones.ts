@@ -37,7 +37,7 @@ export class Cupones {
     this.cupon = null;
 
     this.http.get(
-      `http://localhost:8084/cupones/validar/${this.codigo}`
+      `http://localhost:8086/cupones/validar/${this.codigo}`
     ).subscribe({
 
       next: (resp: any) => {

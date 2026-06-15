@@ -23,7 +23,7 @@ export class CatalogoComponentesComponent implements OnInit {
   // GET: Obtiene exclusivamente los productos registrados en el puerto 8082
   cargarProductos() {
     this.loading = true;
-    this.http.get<any[]>('http://localhost:8082/api/productos').subscribe({
+    this.http.get<any[]>('http://localhost:8082/productos').subscribe({
       next: (res) => {
         this.productos = res;
         this.loading = false;
