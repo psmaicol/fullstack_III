@@ -1,4 +1,5 @@
 export const environment = {
+    production: false,
     "url_pedidos":" http://localhost:8081/pedidos",
     "url_inventario":" http://localhost:8082/inventario",
     "url_pago":" http://localhost:8083/pago",
