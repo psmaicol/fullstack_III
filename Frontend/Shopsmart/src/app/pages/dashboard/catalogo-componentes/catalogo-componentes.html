@@ -2,6 +2,9 @@
   <div class="header-box">
     <h2>🛍️ Catálogo de Productos Disponibles</h2>
     <button class="btn-back" (click)="volverAlInicio()">← Volver al Menú</button>
+    <button type="button" (click)="cargarProductos()" class="btn-actualizar">
+  🔄 Actualizar Catálogo
+</button>
   </div>
 
   <div *ngIf="loading" class="loading-state">
@@ -27,6 +30,6 @@
   </div>
 
   <div *ngIf="productos.length === 0 && !loading" class="empty-state">
-    <p>No hay artículos registrados actualmente en el inventario de Supabase.</p>
+    <p>No hay artículos registrados actualmente en el inventario .</p>
   </div>
 </div>

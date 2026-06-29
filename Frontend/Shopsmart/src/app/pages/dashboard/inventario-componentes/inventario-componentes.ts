@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-inventario-componentes',
+  selector: 'app-app-inventario-componentes',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './inventario-componentes.html',
@@ -22,15 +22,15 @@ export class InventarioComponentesComponent implements OnInit {
     this.cargarProductos();
   }
 
-  // GET: Obtener todos los productos del puerto 8080
+  // GET: Obtener todos los productos (Corregido agregando /api/)
   cargarProductos() {
     this.http.get<any[]>('http://localhost:8082/productos').subscribe({
       next: (res) => this.productos = res,
-      error: (err) => console.error('Error al conectar con el inventario 8080', err)
+      error: (err) => console.error('Error al conectar con el inventario 8082', err)
     });
   }
 
-  // POST: Agregar un nuevo producto al inventario
+  // POST: Agregar un nuevo producto al inventario (Corregido agregando /api/)
   agregarProducto() {
     if (!this.nuevoProd.nombre || this.nuevoProd.precio <= 0 || this.nuevoProd.stock < 0) {
       alert('Por favor, completa los campos con valores válidos.');
@@ -39,7 +39,6 @@ export class InventarioComponentesComponent implements OnInit {
 
     this.loading = true;
 
-    // Convertimos explícitamente a números puros para evitar incompatibilidades con Java
     const payload = {
       nombre: this.nuevoProd.nombre,
       precio: Number(this.nuevoProd.precio),
@@ -48,12 +47,12 @@ export class InventarioComponentesComponent implements OnInit {
 
     const headers = { 'Content-Type': 'application/json' };
 
-    this.http.post('http://localhost:8082/api/productos', payload, { headers }).subscribe({
+    this.http.post('http://localhost:8082/productos', payload, { headers }).subscribe({
       next: () => {
         this.loading = false;
         alert('✅ ¡Producto añadido al inventario exitosamente!');
         this.nuevoProd = { nombre: '', precio: 0, stock: 0 }; // Limpiar formulario
-        this.cargarProductos(); // Recargar la tabla automáticamente
+        this.cargarProductos(); // 🔄 Ahora sí recargará automáticamente porque la ruta responde con éxito
       },
       error: (err) => {
         this.loading = false;
@@ -63,13 +62,13 @@ export class InventarioComponentesComponent implements OnInit {
     });
   }
 
-  // DELETE: Quitar un producto del sistema
+  // DELETE: Quitar un producto del sistema (Corregido agregando /api/)
   eliminarProducto(id: number) {
     if (confirm('¿Estás seguro de que deseas quitar este producto del inventario?')) {
-      this.http.delete(`http://localhost:8082/api/productos/${id}`).subscribe({
+      this.http.delete(`http://localhost:8082/productos/${id}`).subscribe({
         next: () => {
           alert('🗑️ Producto eliminado del sistema.');
-          this.cargarProductos(); // Recargar la tabla automáticamente
+          this.cargarProductos(); // 🔄 Recarga la tabla automáticamente tras borrar
         },
         error: (err) => {
           console.error('Error en DELETE:', err);

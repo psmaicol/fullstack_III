@@ -16,25 +16,18 @@ export class CatalogoComponentesComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  ngOnInit() {
-    this.cargarProductos();
-  }
+// Dentro de tu clase CatalogoComponentesComponent:
 
-  // GET: Obtiene exclusivamente los productos registrados en el puerto 8082
-  cargarProductos() {
-    this.loading = true;
-    this.http.get<any[]>('http://localhost:8082/productos').subscribe({
-      next: (res) => {
-        this.productos = res;
-        this.loading = false;
-      },
-      error: (err) => {
-        this.loading = false;
-        console.error('Error al conectar con el inventario', err);
-        alert('❌ No se pudo conectar con el inventario. Asegúrate de que el puerto 8082 esté encendido.');
-      }
-    });
-  }
+ngOnInit() {
+  this.cargarProductos();
+}
+
+cargarProductos() {
+  this.http.get<any[]>('http://localhost:8082/productos').subscribe({
+    next: (res) => this.productos = res,
+    error: (err) => console.error('Error al conectar con el catálogo', err)
+  });
+}
 
   volverAlInicio() {
     this.router.navigate(['/inicio']);
