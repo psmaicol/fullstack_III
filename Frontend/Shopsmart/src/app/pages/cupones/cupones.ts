@@ -30,34 +30,23 @@ export class Cupones {
     private http: HttpClient
   ) {}
 
-  validarCupon() {
-
-    this.error = '';
-
-    this.cupon = null;
-
-    this.http.get(
-      `http://localhost:8086/cupones/validar/${this.codigo}`
-    ).subscribe({
-
-      next: (resp: any) => {
-
-        console.log(resp);
-
-        this.cupon = resp;
-
-      },
-
-      error: (err) => {
-
-        console.log(err);
-
-        this.error = 'Cupón no válido';
-
-      }
-
-    });
-
+  codigoCupon: string = ''; 
+validarCupon() {
+  if (!this.codigoCupon.trim()) {
+    alert('Por favor, ingresa un código de cupón.');
+    return;
   }
 
+  const url = `http://localhost:8086/cupones/validar/${this.codigoCupon.trim()}`;
+
+  this.http.get<any>(url).subscribe({
+    next: (cuponValido) => {
+      alert(`✅ ¡Cupón aplicado! Descuento del ${cuponValido.porcentajeDescuento}%`);
+    },
+    error: (err) => {
+      console.error(err);
+      alert('❌ Cupón no válido. Verifica que esté bien escrito o no haya expirado.');
+    }
+  });
+  }
 }

@@ -10,19 +10,14 @@
       Ingresa un código promocional
     </p>
 
-    <input
-      type="text"
-      [(ngModel)]="codigo"
-      placeholder="Ej: NAVIDAD20"
-    >
+<input 
+  type="text" 
+  [(ngModel)]="codigoCupon" 
+  name="codigoCupon" 
+  placeholder="Ingresa tu cupón aquí (ej: OFERTA20)" 
+/>
 
-    <button (click)="validarCupon()">
-
-      Validar
-
-    </button>
-
-    <!-- CUPON OK -->
+<button (click)="validarCupon()">Aplicar Cupón</button>
 
     <div
       class="success"
@@ -48,8 +43,6 @@
       </p>
 
     </div>
-
-    <!-- ERROR -->
 
     <div
       class="error"

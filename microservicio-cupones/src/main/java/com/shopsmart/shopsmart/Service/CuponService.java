@@ -13,8 +13,8 @@ public class CuponService {
     @Autowired
     private CuponRepository repository;
 
-    public Cupon crearCupon(Cupon cupon) {
-        return repository.save(cupon);
+public Cupon buscarPorCodigo(String codigo) {
+        return repository.findByCodigo(codigo).orElse(null);
     }
 
     public Cupon validarCupon(String codigo) {

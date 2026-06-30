@@ -7,6 +7,17 @@
   <div class="review-form-card">
     <h3>Déjanos tu opinión</h3>
     <div class="form-inputs">
+      
+      <div class="field-item select-box">
+        <label>Selecciona el Producto *</label>
+        <select [(ngModel)]="nuevaResena.productoId" (change)="onProductoCambiado()" style="padding: 8px; border-radius: 4px; width: 100%;">
+          <option [value]="0" disabled selected>-- Elige un producto del inventario --</option>
+          <option *ngFor="let prod of productos" [value]="prod.id">
+            {{ prod.nombre }} (ID: {{ prod.id }})
+          </option>
+        </select>
+      </div>
+
       <div class="field-item select-box">
         <label>Calificación (1 al 5)</label>
         <input [(ngModel)]="nuevaResena.calificacion" type="number" min="1" max="5" />
@@ -17,27 +28,33 @@
         <input [(ngModel)]="nuevaResena.comentario" placeholder="¿Qué te pareció el artículo? Cuéntanos..." />
       </div>
       
-      <button class="btn-send" (click)="publicarResena()" [disabled]="loading">
+      <button class="btn-send" (click)="publicarResena()" [disabled]="loading || nuevaResena.productoId === 0">
         {{ loading ? 'Enviando...' : 'Enviar Reseña ✨' }}
       </button>
     </div>
   </div>
 
-  <h3>Comentarios Recientes de Clientes</h3>
-  <div class="reviews-wrapper">
-    <div class="opinion-card" *ngFor="let r of listaResenas">
-      <div class="card-top">
-        <span class="product-tag">🛍️ Producto #{{ r.productoId }}</span>
-        <span class="stars-badge">⭐ {{ r.calificacion }} / 5</span>
+  <div *ngIf="nuevaResena.productoId && nuevaResena.productoId !== 0">
+    <h3>Comentarios Recientes del Producto Seleccionado</h3>
+    <div class="reviews-wrapper">
+      <div class="opinion-card" *ngFor="let r of listaResenas">
+        <div class="card-top">
+          <span class="product-tag">🛍️ Producto #{{ r.productoId }}</span>
+          <span class="stars-badge">⭐ {{ r.calificacion }} / 5</span>
+        </div>
+        <p class="comment-text">"{{ r.comentario }}"</p>
+        <div class="card-footer">
+          <small>Enviado por Cliente ID #{{ r.usuarioId }}</small>
+        </div>
       </div>
-      <p class="comment-text">"{{ r.comentario }}"</p>
-      <div class="card-footer">
-        <small>Enviado por Cliente ID #{{ r.usuarioId }}</small>
-      </div>
-    </div>
 
-    <div *ngIf="listaResenas.length === 0" class="empty-message">
-      Aún no se han registrado opiniones en este entorno. ¡Sé el primero en dejar una!
+      <div *ngIf="listaResenas.length === 0" class="empty-message">
+        Aún no se han registrado opiniones para este producto. ¡Sé el primero en dejar una!
+      </div>
     </div>
+  </div>
+
+  <div *ngIf="!nuevaResena.productoId || nuevaResena.productoId === 0" class="empty-message" style="text-align: center; margin-top: 20px; font-weight: bold; color: #777;">
+    Please, selecciona un producto en el menú de arriba para visualizar o añadir reseñas.
   </div>
 </div>

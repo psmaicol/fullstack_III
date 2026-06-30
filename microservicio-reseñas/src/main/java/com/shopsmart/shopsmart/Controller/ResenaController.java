@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/resenas")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200") 
 public class ResenaController extends BaseController {
 
     @Autowired
@@ -17,6 +17,9 @@ public class ResenaController extends BaseController {
 
     @PostMapping
     public Resena crear(@RequestBody Resena resena) {
+        if (resena.getProductoId() == null || resena.getProductoId() <= 0) {
+            throw new IllegalArgumentException("Error: Debe seleccionar un producto válido para enviar una reseña.");
+        }
         return service.guardarResena(resena);
     }
 
